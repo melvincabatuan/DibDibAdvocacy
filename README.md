@@ -87,21 +87,32 @@ SOFTWARE.
 
 
 # REFERENCES:
+
 [1] International Agency for Research on Cancer (IARC) and Cancer Research UK."
 World Cancer Factsheet". Cancer Research UK, London, 2012.
+
 [2] World Health Organization. http://www.who.int 
+
 [3] THE GLOBOCAN PROJECT, International Agency for Research on Cancer (IARC)/WHO. http://globocan.iarc.fr
+
 [4] Philippine College of Surgeons. http://pcs.org.ph
+
 [5] Philippine Breast Cancer Network. http://www.pbcn.org
+
 [6] M.H. Forouzanfar, K.J. Foreman, A.M. Delossantos, R. Lozano, A.D. Lopez, C.J.L.
 Murray, M. Naghavi, "Breast and cervical cancer in 187 countries between 1980 and 2010:
 a systematic analysis," The Lancet, Volume 378, Issue 9801, pp. 1461 - 1484, 22, 2011.
+
 [7] Department of Health, National Epidemiology Center, National Health Statistics Report
 2008 and 2009.
+
 [8] Yip C. H. "Breast cancer in Asia", Dept. of Surgery University Malaya Medical Centre,
 Lecture Presentation, 2012.
+
 [9] P. Pisani, D.M. Parkin, C. Ngelangel, D. Esteban, L. Gibson, M. Munson, M.G. Reyes
 and A. Laudico. Outcome of screening by clinical examination of the breast in a trial in the
 Philippines. Int. J. Cancer, 118:149-154, 2006.
+
 [10] ICANSERVE Foundation. http://www.icanservefoundation.org
+
 [11] Dr. Reynaldo O. Joson's Medical blog. https://rojosonmedicalclinic.wordpress.com
