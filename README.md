@@ -1,6 +1,6 @@
 # Dibdib Advocacy v1.0 (Alpha)
 
-Dibdib Advocacy App v1.0 is a Breast Cancer awareness application with the main goal of spreading awareness and helping Filipino women fight against breast cancer. This app is developed and maintained by the Intelligent Systems Laboratory of De La Salle University under the Philippine Commission of Higher Education (CHED)- Philippine Research Network (PHERNET) Sustainability Studies Program.   
+Dibdib Advocacy App v1.0 is a Breast Cancer awareness application with the main goal of spreading awareness and helping Filipino women fight against breast cancer. This app is developed and maintained by the Intelligent Systems Laboratory of De La Salle University-Manila under the Philippine Commission of Higher Education (CHED)- Philippine Research Network (PHERNET) Sustainability Studies Program.   
 
 
 # INCLUDES:
@@ -16,12 +16,13 @@ Dibdib Advocacy App v1.0 is a Breast Cancer awareness application with the main 
 
 
 # CORE APP DEVELOPER:
-
+```text
 Melvin K. Cabatuan
 Member, Intelligent Systems Laboratory
 Mobile Application Development Team Leader
 Email: melvincabatuan@gmail.com
 All Rights Reserved
+```
 
 # LICENSE
 
