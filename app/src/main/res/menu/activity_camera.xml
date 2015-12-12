@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CameraBasedCheckActivity">
+
+    <item android:id="@+id/action_rgba"
+        android:title="Preview"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_histogram"
+        android:title="Histograms"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_zoom"
+        android:title="Magnify"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_detect"
+        android:title="Detect"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_canny"
+        android:title="Edges"
+        app:showAsAction="always" />
+
+    <item android:id="@+id/action_sepia"
+        android:title="Sepia"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_sobel"
+        android:title="Sobel"
+        app:showAsAction="ifRoom" />
+
+</menu>

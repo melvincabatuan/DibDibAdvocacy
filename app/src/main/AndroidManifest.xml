@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cabatuan.breastfriend">
+
+    <permission
+        android:name="com.cabatuan.breastfriend.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+
+    <!--
+     OpenCV activity permissions for camera
+     -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- android:largeHeap="true" -->
+
+
+        <activity
+            android:name=".SplashActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".BasicFactsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_basic_facts"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".ContactsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_contacts"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".AcknowledgmentActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_credits"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".DecreaseRiskActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_prevention"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".RiskFactorsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_risk_factors"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".VisualCheckActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_visual_check"></activity>
+
+        <activity
+            android:name=".PalpationActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:label="@string/title_palpation"
+            android:uiOptions="splitActionBarWhenNarrow"></activity>
+
+        <activity
+            android:name=".CameraBasedCheckActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:screenOrientation="landscape"
+            android:theme="@style/TransparentTheme"
+            android:label="@string/title_camera_based_check"/>
+
+        <activity
+            android:name=".PlayVideoActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_play_video"></activity>
+
+        <service
+            android:name=".BackgroundSound"
+            android:enabled="true" />
+
+        <!--
+         The API key for Google Maps-based APIs is defined as a string resource.
+         (See the file "res/values/google_maps_api.xml").
+         Note that the API key is linked to the encryption key used to sign the APK.
+         You need a different API key for each encryption key, including the release key that is used to
+         sign the APK for publishing.
+         You can define the keys for the debug and release targets in src/debug/ and src/release/.
+    -->
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

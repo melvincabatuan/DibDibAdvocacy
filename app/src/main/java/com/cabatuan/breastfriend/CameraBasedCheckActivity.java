@@ -1,0 +1,459 @@
+package com.cabatuan.breastfriend;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.SurfaceView;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
+import org.opencv.core.CvType;
+import org.opencv.core.Mat;
+import org.opencv.core.MatOfFloat;
+import org.opencv.core.MatOfInt;
+import org.opencv.core.MatOfRect;
+import org.opencv.core.Point;
+import org.opencv.core.Rect;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
+import org.opencv.imgproc.Imgproc;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
+
+/**
+ * Created by cobalt on 11/4/15.
+ */
+public class CameraBasedCheckActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2, View.OnTouchListener {
+
+    private static final String    TAG                 = "CameraBasedCheck";
+    private static final Scalar    FACE_RECT_COLOR        = new Scalar(0, 255, 0, 255);
+
+    public static final int      VIEW_MODE_RGBA      = 0;
+    public static final int      VIEW_MODE_HIST      = 1;
+    public static final int      VIEW_MODE_CANNY     = 2;
+    public static final int      VIEW_MODE_SEPIA     = 3;
+    public static final int      VIEW_MODE_SOBEL     = 4;
+    public static final int      VIEW_MODE_ZOOM      = 5;
+    public static final int      VIEW_MODE_PIXELIZE  = 6;
+    public static final int      VIEW_MODE_POSTERIZE = 7;
+    public static final int      VIEW_MODE_DETECT    = 8;
+    public static final int      VIEW_MODE_CONTOUR   = 9;
+
+    public static int           viewMode = VIEW_MODE_RGBA;
+
+    private Mat                    mRgba;
+    private Mat                    mGray;
+    private File                   mCascadeFile;
+    private DetectionBasedTracker  mNativeDetector;
+    private static final int       scale = 2;  // scale by half
+
+    private static final float     mRelativeFaceSize   = 0.2f;
+    private int                    mAbsoluteFaceSize   = 0;
+
+    private Bitmap resultBitmap;
+
+    private OpenCvCameraView mOpenCvCameraView;
+
+    private Size                 mSize0;
+
+    private Mat                  mIntermediateMat;
+    private Mat                  mMat0;
+    private MatOfInt             mChannels[];
+    private MatOfInt             mHistSize;
+    private int                  mHistSizeNum = 25;
+    private MatOfFloat           mRanges;
+    private Scalar               mColorsRGB[];
+    private Scalar               mColorsHue[];
+    private Scalar               mWhilte;
+    private Point                mP1;
+    private Point                mP2;
+    private float                mBuff[];
+    private Mat                  mSepiaKernel;
+
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS:
+                {
+                    Log.i(TAG, "OpenCV loaded successfully");
+
+                    // Load native library after(!) OpenCV initialization
+                    System.loadLibrary("detection_based_tracker");
+
+                    try {
+                        // load cascade file from application resources
+                        InputStream is = getResources().openRawResource(R.raw.haarcascade_frontalbreast);
+                        File cascadeDir = getDir("cascade", Context.MODE_PRIVATE);
+                        mCascadeFile = new File(cascadeDir, "haarcascade_frontalbreast.xml");
+                        FileOutputStream os = new FileOutputStream(mCascadeFile);
+
+                        byte[] buffer = new byte[4096];
+                        int bytesRead;
+                        while ((bytesRead = is.read(buffer)) != -1) {
+                            os.write(buffer, 0, bytesRead);
+                        }
+                        is.close();
+                        os.close();
+
+                        mNativeDetector = new DetectionBasedTracker(mCascadeFile.getAbsolutePath(), 0);
+
+                        cascadeDir.delete();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Log.e(TAG, "Failed to load cascade. Exception thrown: " + e);
+                    }
+
+                    mOpenCvCameraView.enableView();
+
+                    mOpenCvCameraView.setOnTouchListener(CameraBasedCheckActivity.this);
+
+                } break;
+                default:
+                {
+                    super.onManagerConnected(status);
+                } break;
+            }
+        }
+    };
+
+    public CameraBasedCheckActivity() {
+        Log.i(TAG, "Instantiated new " + this.getClass());
+    }
+
+    /** Called when the activity is first created. */
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "called onCreate");
+        super.onCreate(savedInstanceState);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+        setContentView(R.layout.activity_camera_based_check);
+
+        mOpenCvCameraView = (OpenCvCameraView) findViewById(R.id.fd_activity_surface_view);
+        mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
+        mOpenCvCameraView.setCvCameraViewListener(this);
+    }
+
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        if (mOpenCvCameraView != null)
+            mOpenCvCameraView.disableView();
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if (!OpenCVLoader.initDebug()) {
+            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_3_0_0, this, mLoaderCallback);
+        } else {
+            Log.d(TAG, "OpenCV library found inside package. Using it!");
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
+    }
+
+    public void onDestroy() {
+        super.onDestroy();
+        mOpenCvCameraView.disableView();
+    }
+
+    public void onCameraViewStarted(int width, int height) {
+        mGray = new Mat();
+        mRgba = new Mat();
+
+        mIntermediateMat = new Mat();
+        mSize0 = new Size();
+        mChannels = new MatOfInt[] { new MatOfInt(0), new MatOfInt(1), new MatOfInt(2) };
+        mBuff = new float[mHistSizeNum];
+        mHistSize = new MatOfInt(mHistSizeNum);
+        mRanges = new MatOfFloat(0f, 256f);
+        mMat0  = new Mat();
+        mColorsRGB = new Scalar[] { new Scalar(200, 0, 0, 255), new Scalar(0, 200, 0, 255), new Scalar(0, 0, 200, 255) };
+        mColorsHue = new Scalar[] {
+                new Scalar(255, 0, 0, 255),   new Scalar(255, 60, 0, 255),  new Scalar(255, 120, 0, 255), new Scalar(255, 180, 0, 255), new Scalar(255, 240, 0, 255),
+                new Scalar(215, 213, 0, 255), new Scalar(150, 255, 0, 255), new Scalar(85, 255, 0, 255),  new Scalar(20, 255, 0, 255),  new Scalar(0, 255, 30, 255),
+                new Scalar(0, 255, 85, 255),  new Scalar(0, 255, 150, 255), new Scalar(0, 255, 215, 255), new Scalar(0, 234, 255, 255), new Scalar(0, 170, 255, 255),
+                new Scalar(0, 120, 255, 255), new Scalar(0, 60, 255, 255),  new Scalar(0, 0, 255, 255),   new Scalar(64, 0, 255, 255),  new Scalar(120, 0, 255, 255),
+                new Scalar(180, 0, 255, 255), new Scalar(255, 0, 255, 255), new Scalar(255, 0, 215, 255), new Scalar(255, 0, 85, 255),  new Scalar(255, 0, 0, 255)
+        };
+        mWhilte = Scalar.all(255);
+        mP1 = new Point();
+        mP2 = new Point();
+
+        // Fill sepia kernel
+        mSepiaKernel = new Mat(4, 4, CvType.CV_32F);
+        mSepiaKernel.put(0, 0, /* R */0.189f, 0.769f, 0.393f, 0f);
+        mSepiaKernel.put(1, 0, /* G */0.168f, 0.686f, 0.349f, 0f);
+        mSepiaKernel.put(2, 0, /* B */0.131f, 0.534f, 0.272f, 0f);
+        mSepiaKernel.put(3, 0, /* A */0.000f, 0.000f, 0.000f, 1f);
+
+        showToast("Click the screen to take a picture.");
+    }
+
+    public void onCameraViewStopped() {
+
+        mGray.release();
+        mRgba.release();
+
+        if (mIntermediateMat != null)
+            mIntermediateMat.release();
+
+        mIntermediateMat = null;
+    }
+
+    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
+
+        mRgba = inputFrame.rgba();
+        mGray = inputFrame.gray();
+
+        Size sizeRgba = mRgba.size();
+
+        Mat rgbaInnerWindow;
+
+        int rows = (int) sizeRgba.height;
+        int cols = (int) sizeRgba.width;
+
+
+        switch (CameraBasedCheckActivity.viewMode) {
+
+            case CameraBasedCheckActivity.VIEW_MODE_RGBA:
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_DETECT:
+
+                if (mAbsoluteFaceSize == 0) {
+                    if (Math.round(rows * mRelativeFaceSize) > 0) {
+                        mAbsoluteFaceSize = Math.round(rows * mRelativeFaceSize);
+                    }
+                    mNativeDetector.setMinFaceSize(mAbsoluteFaceSize);
+                }
+
+                MatOfRect faces = new MatOfRect();
+
+                if (mNativeDetector != null)
+                    mNativeDetector.detect(mGray, faces);
+
+                Rect[] facesArray = faces.toArray();
+                for (int i = 0; i < facesArray.length; i++)
+                    Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), FACE_RECT_COLOR, 3);
+
+                mGray.release();
+                break;
+
+
+
+            case CameraBasedCheckActivity.VIEW_MODE_ZOOM:
+
+                Mat tlCorner = mRgba.submat(3*rows/5, rows, 0, cols / 2 - cols / 10);
+                Mat trCorner = mRgba.submat(3*rows/5, rows, cols - (cols / 2 - cols / 10) , cols);
+
+                Mat mZoomWindow = mRgba.submat(rows / 2 - 9 * rows / 100, rows / 2 + 9 * rows / 100, cols / 2 - 9 * cols / 100, cols / 2 + 9 * cols / 100);
+                Mat mGrayZoomWindow = mGray.submat(rows / 2 - 9 * rows / 100, rows / 2 + 9 * rows / 100, cols / 2 - 9 * cols / 100, cols / 2 + 9 * cols / 100);
+
+                Imgproc.resize(mZoomWindow, tlCorner, tlCorner.size());
+
+                //apply Sobel
+                Imgproc.Sobel(mGrayZoomWindow, mIntermediateMat, CvType.CV_8U, 1, 1);
+                Core.convertScaleAbs(mIntermediateMat, mIntermediateMat, 10, 0);
+
+                Mat temp = new Mat();
+                Imgproc.cvtColor(mIntermediateMat, temp, Imgproc.COLOR_GRAY2BGRA, 4);
+                Imgproc.resize(temp, trCorner, trCorner.size());
+                temp.release();
+
+                Size wsize = mZoomWindow.size();
+                Imgproc.rectangle(mZoomWindow, new Point(1, 1), new Point(wsize.width - 2, wsize.height - 2), new Scalar(0, 255, 0, 255), 2);
+
+
+                tlCorner.release();
+                trCorner.release();
+                mZoomWindow.release();
+                mGrayZoomWindow.release();
+
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_HIST:
+                Mat hist = new Mat();
+                int thikness = (int) (sizeRgba.width / (mHistSizeNum + 10) / 5);
+                if(thikness > 5) thikness = 5;
+                int offset = (int) ((sizeRgba.width - (5*mHistSizeNum + 4*10)*thikness)/2);
+                // RGB
+                for(int c=0; c<3; c++) {
+                    Imgproc.calcHist(Arrays.asList(mRgba), mChannels[c], mMat0, hist, mHistSize, mRanges);
+                    Core.normalize(hist, hist, sizeRgba.height/2, 0, Core.NORM_INF);
+                    hist.get(0, 0, mBuff);
+                    for(int h=0; h<mHistSizeNum; h++) {
+                        mP1.x = mP2.x = offset + (c * (mHistSizeNum + 10) + h) * thikness;
+                        mP1.y = sizeRgba.height-1;
+                        mP2.y = mP1.y - 2 - (int)mBuff[h];
+                        Imgproc.line(mRgba, mP1, mP2, mColorsRGB[c], thikness);
+                    }
+                }
+                // Value and Hue
+                Imgproc.cvtColor(mRgba, mIntermediateMat, Imgproc.COLOR_RGB2HSV_FULL);
+
+                // Value
+                Imgproc.calcHist(Arrays.asList(mIntermediateMat), mChannels[2], mMat0, hist, mHistSize, mRanges);
+                Core.normalize(hist, hist, sizeRgba.height/2, 0, Core.NORM_INF);
+                hist.get(0, 0, mBuff);
+                for(int h=0; h<mHistSizeNum; h++) {
+                    mP1.x = mP2.x = offset + (3 * (mHistSizeNum + 10) + h) * thikness;
+                    mP1.y = sizeRgba.height-1;
+                    mP2.y = mP1.y - 2 - (int)mBuff[h];
+                    Imgproc.line(mRgba, mP1, mP2, mWhilte, thikness);
+                }
+                // Hue
+                Imgproc.calcHist(Arrays.asList(mIntermediateMat), mChannels[0], mMat0, hist, mHistSize, mRanges);
+                Core.normalize(hist, hist, sizeRgba.height/2, 0, Core.NORM_INF);
+                hist.get(0, 0, mBuff);
+                for(int h=0; h<mHistSizeNum; h++) {
+                    mP1.x = mP2.x = offset + (4 * (mHistSizeNum + 10) + h) * thikness;
+                    mP1.y = sizeRgba.height-1;
+                    mP2.y = mP1.y - 2 - (int)mBuff[h];
+                    Imgproc.line(mRgba, mP1, mP2, mColorsHue[h], thikness);
+                }
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_CANNY:
+                Imgproc.Canny(mRgba, mIntermediateMat, 80, 90);
+                Imgproc.cvtColor(mIntermediateMat, mRgba, Imgproc.COLOR_GRAY2BGRA, 4);
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_SOBEL:
+                Imgproc.Sobel(mGray, mIntermediateMat, CvType.CV_8U, 1, 1);
+                Core.convertScaleAbs(mIntermediateMat, mIntermediateMat, 10, 0);
+                Imgproc.cvtColor(mIntermediateMat, mRgba, Imgproc.COLOR_GRAY2BGRA, 4);
+                mGray.release();
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_SEPIA:
+                Core.transform(mRgba, mRgba, mSepiaKernel);
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_PIXELIZE:
+                Imgproc.resize(mRgba, mIntermediateMat, mSize0, 0.1, 0.1, Imgproc.INTER_NEAREST);
+                Imgproc.resize(mIntermediateMat, mRgba, mRgba.size(), 0., 0., Imgproc.INTER_NEAREST);
+                break;
+
+            case CameraBasedCheckActivity.VIEW_MODE_POSTERIZE:
+                Imgproc.Canny(mRgba, mIntermediateMat, 80, 90);
+                mRgba.setTo(new Scalar(0, 0, 0, 255), mIntermediateMat);
+                Core.convertScaleAbs(mRgba, mIntermediateMat, 1./16, 0);
+                Core.convertScaleAbs(mIntermediateMat, mRgba, 16, 0);
+                break;
+
+        } // END SWITCH
+
+        return mRgba;
+    }
+
+
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        Log.i(TAG, "called onCreateOptionsMenu");
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_camera, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.i(TAG, "called onOptionsItemSelected; selected item: " + item);
+
+        long action = item.getItemId();
+
+        if (action == R.id.action_rgba)
+            viewMode = VIEW_MODE_RGBA;
+        else if (action == R.id.action_detect)
+            viewMode = VIEW_MODE_DETECT;
+        else if (action == R.id.action_histogram)
+            viewMode = VIEW_MODE_HIST;
+        else if (action == R.id.action_canny)
+            viewMode = VIEW_MODE_CANNY;
+        else if (action == R.id.action_sepia)
+            viewMode = VIEW_MODE_SEPIA;
+        else if (action == R.id.action_sobel)
+            viewMode = VIEW_MODE_SOBEL;
+        else if (action == R.id.action_zoom)
+            viewMode = VIEW_MODE_ZOOM;
+        return super.onOptionsItemSelected(item);
+    }
+
+    @SuppressLint("SimpleDateFormat")
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Log.i(TAG,"onTouch event");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+        String currentDateandTime = sdf.format(new Date());
+        String fileName = Environment.getExternalStorageDirectory().getPath() +
+                "/bsa_picture_" + currentDateandTime + ".jpg";
+        mOpenCvCameraView.takePicture(fileName);
+        //Toast.makeText(this, fileName + " saved", Toast.LENGTH_SHORT).show();
+        showToast(fileName + " saved...");
+        return false;
+    }
+
+    private void showToast(String message) {
+
+        // Inflate the Layout
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.mytoast,
+                (ViewGroup) findViewById(R.id.custom_toast_layout));
+
+        // Retrieve the ImageView and TextView
+        ImageView iv = (ImageView) layout.findViewById(R.id.toastImageView);
+        TextView text = (TextView) layout.findViewById(R.id.textToShow);
+
+        // Set the image
+        iv.setImageResource(R.mipmap.ic_video);
+
+        // Set the Text to show in TextView
+        text.setText(message);
+        text.setBackgroundColor(Color.BLACK);
+
+        final Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
+        toast.show();
+    }
+}
