@@ -792,3 +792,5 @@ Verifying alignment of dibdibadvocacy.apk (4)...
 22323999 META-INF/CERT.RSA (OK - compressed)
 Verification succesful
 ```
+
+*"Natural mind can replace almost every level of education, but no education can replace the natural mind."* - Arthur Schopenhauer
