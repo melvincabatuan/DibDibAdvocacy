@@ -15,7 +15,7 @@ Dibdib Advocacy App v1.0 is a Breast Cancer awareness application with the main 
 - Speech-based User Interface feedback (using Android's Text-to-Speech API)
 
 
-# GOOGLE PLAY (in progress...)
+# GOOGLE PLAY
 
 https://play.google.com/store/apps/details?id=com.cabatuan.breastfriend 
 
