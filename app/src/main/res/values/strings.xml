@@ -1,0 +1,96 @@
+<resources>
+    <string name="app_name">DibdibAdvocacy</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_logo_bottom">CANCER AWARENESS!</string>
+    <string name="app_version_info">Alpha Version 1.0\nCopyright © 2015 Intelligent Systems Laboratory \nDe La Salle University-Manila \nAll Rights
+    Reserved.</string>
+
+    <!-- Contact / Go to Hospital Activity -->
+    <string name="map_ready">Map is ready!</string>
+     <string name="no_location_detected">
+        No location detected. Make sure location is enabled on the device.
+    </string>
+
+    <!-- Titles -->
+    <string name="title_basic_facts">Breast Cancer Facts</string>
+    <string name="title_contacts">Go to Nearest Hospital</string>
+    <string name="title_map">Breast Healthcare Map</string>
+    <string name="title_credits">About this App</string>
+    <string name="title_palpation">Palpation</string>
+    <string name="title_play_video">PlayVideo</string>
+    <string name="title_prevention">Lower the Risk</string>
+    <string name="title_risk_factors">Risk Factors</string>
+    <string name="title_visual_check">Visual Inspection</string>
+    <string name="title_camera_based_check">Breast Selfie Awareness</string>
+    <string name="title_photo_activity">Selfie Photo Saved!</string>
+
+    <!-- Actions -->
+    <string name="action_next">NEXT</string>
+    <string name="action_finish">FINISH</string>
+    <string name="action_previous">PREVIOUS</string>
+    <string name="action_demo">DEMO</string>
+
+    <!-- Slide content texts for basic facts -->
+    <string-array name="basicsinfotext">
+        <item>Breast cancer is a disease in which malignant or cancer cells form in the tissues of the breast.</item>
+        <item>Breast cancer is by far the most common cancer in women worldwide, both in the developed and developing countries, according to the World Health Organization.</item>
+        <item>The Philippines is among the countries with highest trends in incidence of female breast cancer, according to GLOBOCAN 2012.</item>
+        <item>1 out of 13 Filipino women will develop breast cancer in her lifetime, as stated by the Philippine Breast Cancer Network.</item>
+        <item>The majority of deaths (269 000) occur in low- and middle-income countries, where most women with breast cancer are diagnosed in late stages, due mainly to lack of awareness on early detection, and barriers to health services, as stated by the World Health Organization.</item>
+        <item>Early detection and treatment of Breast Cancer is associated with improved survival rate.</item>
+        <item>Philippine College of Surgeons recommends - annual mammography by the age of 50; annual clinical breast exam by the age of 40; and monthly self-breast examination by age 20. </item>
+    </string-array>
+
+    <!-- Slide content texts for basic facts -->
+    <string-array name="riskinfotext">
+        <item>Although there are breast cancer cases reported in males, being a female is the most significant risk factor for breast cancer.</item>
+        <item>The absolute risk of breast cancer increases with older age.</item>
+        <item>A history of breast cancer in a close relative or family increases your risk for breast cancer.</item>
+        <item>Studies have reported that the use of birth control pills or oral contraceptives slightly increase the risk of breast cancer.</item>
+        <item>Breast cancer risk is much higher for women who have inherited mutations in the genes known as BRCA1 or BRCA2 (BReast CAncer genes 1 and 2).</item>
+        <item>Many studies have shown that increased risk of breast cancer is associated with increasing alcohol intake.</item>
+        <item>Women with dense breasts have been shown to have increased risk of developing breast cancer.</item>
+        <item>Exposure to large amount of radiation in childhood such as radiation treatment to the chest area increases the risk of breast cancer.</item>
+        <item>Studies suggest that breast cancer risk is high on women who smoke especially those who began smoking at an early age.</item>
+    </string-array>
+
+
+    <!-- Slide content texts for decrease risk -->
+    <string-array name="decreaseinfotext">
+        <item>Studies show that exercise influences the break down of estrogens to produce metabolites that lower breast cancer risk.</item>
+        <item>Higher level of carotenoids from fruits and vegetables lower the risk of breast cancer.</item>
+        <item>Breast-feeding may reduce the breast cancer risk.</item>
+        <item>Some studies suggest that increased vitamin D intake might reduce the risk of breast cancer.</item>
+    </string-array>
+
+    <!-- Slide content texts for visual check -->
+    <string-array name="visualinfotext">
+        <item>Are there any changes in size or shape?</item>
+        <item>Are there any redness or rash on the skin especially around the nipple?</item>
+        <item>Are there any discharge coming out from the nipple even without squeezing?</item>
+        <item>Are there any swelling in your armpit or around the collarbone?</item>
+        <item>Do you notice any lump or thickening that feels different from the rest of the breast tissue?</item>
+        <item>Are there any change in breast tissue texture such as puckering or dimpling or perhaps an orange skin?</item>
+        <item>Does your nipple become inverted? Or did it change in position or shape?</item>
+        <item>Do you feel constant pain in your breast or armpit?</item>
+    </string-array>
+
+
+    <!-- Slide content texts for palpation instruction -->
+    <string-array name="palpationinfotext">
+        <item>Use the flat pads of your three middle fingers during palpation since these are more sensitive than other areas.</item>
+        <item>Move your fingers in little circles starting in the armpit region, move down to just the bra line, and continue this up-and-down vertical strip pattern.</item>
+        <item>Vary the amount of applied pressure into superficial, medium, and deep to cover breast tissue depth thoroughly.</item>
+        <item>Slide to proceed for a BSE demo video by Dr. Reynaldo O. Joson, M.D. (Parental Guidance is Advised.)</item>
+    </string-array>
+
+    <string name="title_activity_maps">Map</string>
+    <string name="delete_alert_title">WARNING!</string>
+    <string name="photo_delete_prompt_message"> This photo is saved
+in your Gallery. Are you sure you want to delete the photo?</string>
+    <string name="delete">Delete</string>
+    <string name="photo_send_extra_subject">Dibdib Advocacy App: Breast Selfie</string>
+    <string name="photo_send_extra_text">Let\'s fight breast cancer together!</string>
+    <string name="photo_send_chooser_title">Share Breast Selfie via</string>
+
+</resources>

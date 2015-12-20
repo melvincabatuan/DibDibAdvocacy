@@ -1,0 +1,47 @@
+DISMATH v1.2 (Alpha version)
+Pass or Fail?
+
+
+DISMATH is a multiple choice review app dedicated to my discrete mathematics students of all ages.
+
+
+INSTRUCTIONS:
+
+1. Tap the questions to show the choices. A second tap will hide the choices.
+
+2. Tap the letter of your choice and proceed to the next question until you 
+have answered all questions.
+
+3. You can review, and change your answers by simply tapping the new answer.
+
+4. Once you have completed the exam, press the play button in the action bar
+to get your score. Afterwards, you can perform the following action:
+
+(a) Tap the 'Show Answers' button to display the Answer Key. If you answered
+the question incorrectly, then the item will be highlighted in RED color.
+
+(b) Tap the 'Play Again' button to get a new set of random questions and repeat
+the examination.
+
+(c) Tap anywhere outside the dialog to change your answers. 
+
+(d) Change the number of questions, and set your details by pressing the settings icon.
+
+
+FEATURES:
+
+- simple user interface
+- utilizes SQLite Database  
+- you can customize your own avatar
+- password is not yet utilized in this Alpha version
+
+
+SUPPORT INFORMATION:
+
+DISMATH is developed by MKC.
+
+Melvin K. Cabatuan
+Phone: 0999-5226213
+Email: melvin.cabatuan@dlsu.edu.ph
+COPYRIGHT (c) 2014, MKC. 
+All rights reserved.
