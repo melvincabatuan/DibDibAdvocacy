@@ -31,6 +31,13 @@ Email: melvincabatuan@gmail.com
 All Rights Reserved
 ```
 
+# MEDICAL CONSULTANTS
+
+- Dr. Jose Ma. C. Avila, MD, a former member of the Editorial Board of Western Pacific Region Index Medicus (WPRIM) and present chairman of the Philippine Journal Selection Committee to WPRIM. He is a member of the Research Utilization Committee of the Philippine Council for Health Research and Development (PCHRD). He is also the former Chairman and a Professor of the Department of Pathology, College of Medicine, University of the Philippines, Manila. Dr. Avila was President of the Philippine Society of Pathologists from 2002-2003 and was Chief of the Surgical Pathology Section of the Department of Laboratories, Philippine General Hospital from 2003-2006. He was also a recipient of various awards for outstanding research and publication.
+
+- Dr. Reynaldo O. Joson, MD, MHA, MHPEd, MSc Surg with specialization in Breast Surgery, General Surgery, Head and Neck Surgery, Surgery, Surgical Oncology. (Years in practice: 40 years) . Dr. Joson practices at Manila Doctors Hospital in Manila, Metro Manila. He completed Doctor of Medicine from University of the Philippines Manila in 1974 and Fellowship Training from Philippine College of Surgeon in 1982. He is also a member of Philippine Medical Association.
+
+
 # ACKNOWLEDGMENT:
 - Philippine Commission of Higher Education (CHED)- Philippine Research Network (PHERNET) Sustainability Studies Program for the gracious funding of this project.
 - Breast Cancer Awareness Integrated/Intelligent Multimedia System idea by Dr. Elmer Dadios, Ph.D, head of Intelligent Systems Laboratory, De La Salle University-Manila, and Dr. Raouf Naguib, Ph. D., BIOCORE Research & Consultancy International, De La Salle University, Carleton University.
@@ -70,9 +77,9 @@ SOFTWARE.
 
 # VIDEOCAPTURES
 
-[![screenshot](screenshot_001.png)](https://youtu.be/p6PartliODg)
+[![screenshot](./screenshots/screenshot_001.png)](https://youtu.be/p6PartliODg)
 
-[![screenshot](screenshot_002.png)](https://youtu.be/booLbrq6S_E)
+[![screenshot](./screenshots/screenshot_002.png)](https://youtu.be/booLbrq6S_E)
 
 # SELECTED SCREENSHOTS
 
