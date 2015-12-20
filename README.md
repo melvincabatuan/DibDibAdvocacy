@@ -32,6 +32,7 @@ All Rights Reserved
 ```
 
 # ACKNOWLEDGMENT:
+- Philippine Commission of Higher Education (CHED)- Philippine Research Network (PHERNET) Sustainability Studies Program for the gracious funding of this project.
 - Breast Cancer Awareness Integrated/Intelligent Multimedia System idea by Dr. Elmer Dadios, Ph.D, head of Intelligent Systems Laboratory, De La Salle University-Manila, and Dr. Raouf Naguib, Ph. D., BIOCORE Research & Consultancy International, De La Salle University, Carleton University.
 - Breast Self-Examination video demo by Dr. Reynaldo O. Joson, MD. and Engr. Anthony Jose.
 - Visual inspection infographic from CancerResearch UK (www.cancerresearchuk.org)
