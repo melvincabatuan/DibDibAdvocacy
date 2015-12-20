@@ -81,6 +81,8 @@ SOFTWARE.
 
 [![screenshot](./screenshots/screenshot_002.png)](https://youtu.be/booLbrq6S_E)
 
+[![screenshot](./screenshots/screenshot_003.png)](https://youtu.be/Blg-VcrKGOs)
+
 # SELECTED SCREENSHOTS
 
 ![screenshot](./screenshots/app_splash_screen.png)
