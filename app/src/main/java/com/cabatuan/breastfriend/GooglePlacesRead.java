@@ -1,6 +1,10 @@
 package com.cabatuan.breastfriend;
 
 import android.os.AsyncTask;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 import com.google.android.gms.maps.GoogleMap;
 
@@ -21,7 +25,11 @@ public class GooglePlacesRead extends AsyncTask<Object, Integer, String> {
             Http http = new Http();
             googlePlacesData = http.read(googlePlacesUrl);
         } catch (Exception e) {
+<<<<<<< HEAD
             //Log.d("Google Place Read Task", e.toString());
+=======
+            Log.d("Google Place Read Task", e.toString());
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
         }
         return googlePlacesData;
     }
@@ -35,11 +43,19 @@ public class GooglePlacesRead extends AsyncTask<Object, Integer, String> {
         if(result != null) {
             toPass[1] = result;
             // Debugging: REQUEST_DENIED: "This IP, site or mobile application is not authorized to use this API key."
+<<<<<<< HEAD
             //Log.d("Google Place Read:", "toPass[1] = " + toPass[1]);
             placesDisplay.execute(toPass);
         }
         else {
             //Log.d(TAG, "Google Place failed to provide results.");
+=======
+            Log.d("Google Place Read:", "toPass[1] = " + toPass[1]);
+            placesDisplay.execute(toPass);
+        }
+        else {
+            Log.d(TAG, "Google Place failed to provide results.");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
         }
     }
 }

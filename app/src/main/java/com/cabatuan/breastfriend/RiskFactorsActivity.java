@@ -8,6 +8,10 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -43,7 +47,11 @@ public class RiskFactorsActivity extends AppCompatActivity implements TextToSpee
 
         // Extract String info array for slides
         infotext = getResources().getStringArray(R.array.riskinfotext);
+<<<<<<< HEAD
         //Log.d(TAG, "infotext.length = " + infotext.length);
+=======
+        Log.d(TAG, "infotext.length = " + infotext.length);
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
         // TextToSpeech engine initialization + View pager initialization
         tts = new TextToSpeech(this /* context */, this /* listener */);
@@ -58,7 +66,11 @@ public class RiskFactorsActivity extends AppCompatActivity implements TextToSpee
             int temp = tts.setLanguage(Locale.US);
             if (temp == TextToSpeech.LANG_MISSING_DATA ||
                     temp == TextToSpeech.LANG_NOT_SUPPORTED) {
+<<<<<<< HEAD
                 //Log.e(TAG, "Language is not available.");
+=======
+                Log.e(TAG, "Language is not available.");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
                 ttsLoaded = false;
             }
             else {
@@ -196,7 +208,11 @@ public class RiskFactorsActivity extends AppCompatActivity implements TextToSpee
         }
 
 
+<<<<<<< HEAD
         //Log.d(TAG, "myPagerAdapter.getCount() = " + myPagerAdapter.getCount());
+=======
+        Log.d(TAG, "myPagerAdapter.getCount() = " + myPagerAdapter.getCount());
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
         menu.findItem(R.id.action_previous).setEnabled(viewPager.getCurrentItem() > 0);
 
@@ -213,21 +229,33 @@ public class RiskFactorsActivity extends AppCompatActivity implements TextToSpee
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
+<<<<<<< HEAD
                 //Log.d(TAG,"home was pressed");
+=======
+                Log.d(TAG,"home was pressed");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
                 // Navigate "up" the demo structure to the launchpad activity.
                 // See http://developer.android.com/design/patterns/navigation.html for more.
                 NavUtils.navigateUpTo(this, new Intent(this, MainActivity.class));
                 return true;
 
             case R.id.action_previous:
+<<<<<<< HEAD
                 //Log.d(TAG,"action_previous was pressed");
+=======
+                Log.d(TAG,"action_previous was pressed");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
                 // Go to the previous step in the wizard. If there is no previous step,
                 // setCurrentItem will do nothing.
                 viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
                 return true;
 
             case R.id.action_next:
+<<<<<<< HEAD
                 //Log.d(TAG,"action_next was pressed");
+=======
+                Log.d(TAG,"action_next was pressed");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
                 // Advance to the next step in the wizard. If there is no next step,
                 // go back to MainActivity.
                 if (viewPager.getCurrentItem() == myPagerAdapter.getCount() - 1)

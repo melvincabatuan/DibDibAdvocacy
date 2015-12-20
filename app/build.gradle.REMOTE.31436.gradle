@@ -8,13 +8,8 @@ android {
         applicationId "com.cabatuan.breastfriend"
         minSdkVersion 15
         targetSdkVersion 22
-<<<<<<< HEAD
-        versionCode 2
-        versionName "2.0"
-=======
         versionCode 1
         versionName "1.0"
->>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
     }
     buildTypes {
         release {

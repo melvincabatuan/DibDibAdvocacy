@@ -20,6 +20,7 @@
         android:title="Detect"
         app:showAsAction="always" />
 
+<<<<<<< HEAD
     <item android:id="@+id/action_track"
         android:title="Track"
         app:showAsAction="always" />
@@ -27,6 +28,11 @@
     <item android:id="@+id/action_canny"
         android:title="Edges"
         app:showAsAction="ifRoom" />
+=======
+    <item android:id="@+id/action_canny"
+        android:title="Edges"
+        app:showAsAction="always" />
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
     <item android:id="@+id/action_sepia"
         android:title="Sepia"
@@ -36,6 +42,7 @@
         android:title="Sobel"
         app:showAsAction="ifRoom" />
 
+<<<<<<< HEAD
     <item android:id="@+id/action_contour"
         android:title="Contour"
         app:showAsAction="ifRoom" />
@@ -48,4 +55,6 @@
         android:title="Threshold"
         app:showAsAction="ifRoom" />
 
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 </menu>

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 /home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/app/obj/local/armeabi-v7a/objs/detection_based_tracker/DetectionBasedTracker.o: \
  /home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/app/jni/DetectionBasedTracker.cpp \
  /home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/app/jni/DetectionBasedTracker.h \
+=======
+/home/cobalt/AndroidStudioProjects/BreastFriend/app/obj/local/armeabi-v7a/objs/detection_based_tracker/DetectionBasedTracker.o: \
+ /home/cobalt/AndroidStudioProjects/BreastFriend/app/jni/DetectionBasedTracker.cpp \
+ /home/cobalt/AndroidStudioProjects/BreastFriend/app/jni/DetectionBasedTracker.h \
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
  /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/platforms/android-15/arch-arm/usr/include/jni.h \
  /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/platforms/android-15/arch-arm/usr/include/sys/cdefs.h \
  /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/platforms/android-15/arch-arm/usr/include/sys/cdefs_elf.h \
@@ -56,7 +62,11 @@
  /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/sources/cxx-stl/gnu-libstdc++/4.8/include/deque \
  /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/platforms/android-15/arch-arm/usr/include/android/log.h
 
+<<<<<<< HEAD
 /home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/app/jni/DetectionBasedTracker.h:
+=======
+/home/cobalt/AndroidStudioProjects/BreastFriend/app/jni/DetectionBasedTracker.h:
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 /home/cobalt/Android/adt-bundle-linux-x86-20131030/android-ndk-r10d/platforms/android-15/arch-arm/usr/include/jni.h:
 

@@ -1,6 +1,10 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
+<<<<<<< HEAD
  * Original file: /home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/libraries/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
+=======
+ * Original file: /home/cobalt/AndroidStudioProjects/DibdibAdvocacy/libraries/opencv/src/org/opencv/engine/OpenCVEngineInterface.aidl
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
  */
 package org.opencv.engine;
 /**

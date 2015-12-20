@@ -1,6 +1,10 @@
 package com.cabatuan.breastfriend;
 
 import android.os.AsyncTask;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
@@ -31,7 +35,11 @@ public class PlacesDisplay extends AsyncTask<Object, Integer, List<HashMap<Strin
             googlePlacesJson = new JSONObject((String) inputObj[1]);
             googlePlacesList = placeJsonParser.parse(googlePlacesJson);
         } catch (Exception e) {
+<<<<<<< HEAD
             //Log.d("Exception", e.toString());
+=======
+            Log.d("Exception", e.toString());
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
         }
         return googlePlacesList;
     }

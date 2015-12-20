@@ -12,16 +12,24 @@ INCLUDES:
 - Breast Palpation instructions
 - Breast Self-Examination video demo 
 - Google Map/Places Integration for neighboring hospital search and route
+<<<<<<< HEAD
 - Breast Selfie's (with RGB Preview, Color Histograms, Magnification, Breast Detection by Haar Cascades, Edge detection and Image Gradients based on OpenCV samples)
 - Speech-based User Interface feedback (using Android's Text-to-Speech API)
+=======
+- Breast Selfie's (with RGB Preview, Color Histograms, Magnification, Breast Detection by Haar Cascades, Edge detection and Image Gradients)
+- Speech-based User Interface feedback (by Android's Text-to-Speech API)
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 
 ACKNOWLEDGMENT:
 - Breast Self-Examination video demo by Dr. Reynaldo O. Joson, MD. and Engr. Anthony Jose.
 - Visual inspection infographic from CancerResearch UK (www.cancerresearchuk.org)
 - Icons used are GitHub's Octicons (https://github.com/github/octicons) modified with romannurik's Android Asset Studio (https://github.com/romannurik/AndroidAssetStudio).
+<<<<<<< HEAD
 - Google Android Development Team for the SDK, NDK, and great API's, i.e. Google Map/Places, Text-to-Speech, etc.
 - OpenCV Development Team for the great Computer vision library
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 
 CORE APP DEVELOPER:

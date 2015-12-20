@@ -3,6 +3,11 @@ package com.cabatuan.breastfriend;
 /**
  * Created by cobalt on 11/3/15.
  */
+<<<<<<< HEAD
+=======
+import android.util.Log;
+
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,7 +37,11 @@ public class Http {
             httpData = stringBuffer.toString();
             bufferedReader.close();
         } catch (Exception e) {
+<<<<<<< HEAD
             //Log.d(TAG, e.toString());
+=======
+            Log.d(TAG, e.toString());
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
         } finally {
             inputStream.close();
             httpURLConnection.disconnect();

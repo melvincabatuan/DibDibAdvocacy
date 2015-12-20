@@ -1,5 +1,9 @@
 <resources>
+<<<<<<< HEAD
     <string name="app_name">DibdibAdvocacy</string>
+=======
+    <string name="app_name">Dibdib Advocacy</string>
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
     <string name="action_settings">Settings</string>
     <string name="app_logo_bottom">CANCER AWARENESS!</string>
     <string name="app_version_info">Alpha Version 1.0\nCopyright © 2015 Intelligent Systems Laboratory \nDe La Salle University-Manila \nAll Rights
@@ -22,7 +26,10 @@
     <string name="title_risk_factors">Risk Factors</string>
     <string name="title_visual_check">Visual Inspection</string>
     <string name="title_camera_based_check">Breast Selfie Awareness</string>
+<<<<<<< HEAD
     <string name="title_photo_activity">Selfie Photo Saved!</string>
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
     <!-- Actions -->
     <string name="action_next">NEXT</string>
@@ -83,6 +90,7 @@
         <item>Vary the amount of applied pressure into superficial, medium, and deep to cover breast tissue depth thoroughly.</item>
         <item>Slide to proceed for a BSE demo video by Dr. Reynaldo O. Joson, M.D. (Parental Guidance is Advised.)</item>
     </string-array>
+<<<<<<< HEAD
 
     <string name="title_activity_maps">Map</string>
     <string name="delete_alert_title">WARNING!</string>
@@ -92,5 +100,8 @@ in your Gallery. Are you sure you want to delete the photo?</string>
     <string name="photo_send_extra_subject">Dibdib Advocacy App: Breast Selfie</string>
     <string name="photo_send_extra_text">Let\'s fight breast cancer together!</string>
     <string name="photo_send_chooser_title">Share Breast Selfie via</string>
+=======
+    <string name="title_activity_maps">Map</string>
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
 </resources>

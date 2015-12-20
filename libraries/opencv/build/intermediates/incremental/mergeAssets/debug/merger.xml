@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="/home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/libraries/opencv/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/cobalt/AndroidStudioProjects/DibdibAdvocacy2/libraries/opencv/src/debug/assets"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="main"><source path="/home/cobalt/AndroidStudioProjects/DibdibAdvocacy/libraries/opencv/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/cobalt/AndroidStudioProjects/DibdibAdvocacy/libraries/opencv/src/debug/assets"/></dataSet></merger>
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99

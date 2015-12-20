@@ -18,12 +18,16 @@ public class OpenCvCameraView extends JavaCameraView implements PictureCallback 
 
     private static final String TAG = "OpenCvCameraView";
     private String mPictureFileName;
+<<<<<<< HEAD
     private int mCameraIndex;
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 
     public OpenCvCameraView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
+<<<<<<< HEAD
     public int getNumberOfCameras(){
         return mCamera.getNumberOfCameras();
     }
@@ -34,6 +38,8 @@ public class OpenCvCameraView extends JavaCameraView implements PictureCallback 
         return cameraInfo.facing == Camera.CameraInfo.CAMERA_FACING_FRONT;
     }
 
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
     public List<String> getEffectList() {
         return mCamera.getParameters().getSupportedColorEffects();
     }
@@ -76,7 +82,10 @@ public class OpenCvCameraView extends JavaCameraView implements PictureCallback 
 
         // PictureCallback is implemented by the current class
         mCamera.takePicture(null, null, this);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
     }
 
     @Override
@@ -98,5 +107,8 @@ public class OpenCvCameraView extends JavaCameraView implements PictureCallback 
         }
 
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 }

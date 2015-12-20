@@ -2,6 +2,10 @@ package com.cabatuan.breastfriend;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 import android.widget.TextView;
 
 import java.io.DataInputStream;
@@ -33,7 +37,11 @@ public class AcknowledgmentActivity extends AppCompatActivity {
 
         } catch (Exception e) {
             // Handle Exception, i.e. toast cannot open file
+<<<<<<< HEAD
             //Log.e(TAG,"ERROR: Cannot open file");
+=======
+            Log.e(TAG,"ERROR: Cannot open file");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
         }
     }
 

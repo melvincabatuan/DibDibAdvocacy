@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import android.util.Log;
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -42,7 +46,11 @@ public class MainActivity extends ListActivity implements TextToSpeech.OnInitLis
             int temp = tts.setLanguage(Locale.US);
             if (temp == TextToSpeech.LANG_MISSING_DATA ||
                     temp == TextToSpeech.LANG_NOT_SUPPORTED) {
+<<<<<<< HEAD
                 //Log.e(TAG, "Language is not available.");
+=======
+                Log.e(TAG, "Language is not available.");
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
                 ttsLoaded = false;
             }
             else {

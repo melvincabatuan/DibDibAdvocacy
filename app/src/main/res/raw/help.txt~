@@ -12,11 +12,16 @@ INCLUDES:
 - Breast Palpation instructions
 - Breast Self-Examination video demo 
 - Google Map/Places Integration for neighboring hospital search and route
+<<<<<<< HEAD
 - Camera-Aided Breast Check
+=======
+- Breast Selfie's (with RGB Preview, Color Histograms, Magnification, Edge detection and Image Gradients)
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 - Speech-based User Interface feedback (by Android's Text-to-Speech API)
 
 
 ACKNOWLEDGMENT:
+<<<<<<< HEAD
 - Breast Self-Examination video demo by Dr. Reynaldo O. Joson, MD.)
 - Visual inspection (Infographic from CancerResearch UK)
 - Icons used are Octicons (Copyright: ) modified with AssetHelper ()
@@ -27,6 +32,18 @@ CORE APP CONTRIBUTOR:
 Melvin K. Cabatuan
 Member, Intelligent Systems Laboratory
 Mobile Application Development Team Lead
+=======
+- Breast Self-Examination video demo by Dr. Reynaldo O. Joson, MD. and Engr. Anthony Jose.
+- Visual inspection infographic from CancerResearch UK (www.cancerresearchuk.org)
+- Icons used are GitHub's Octicons (https://github.com/github/octicons) modified with romannurik's Android Asset Studio (https://github.com/romannurik/AndroidAssetStudio).
+
+
+CORE APP DEVELOPER:
+
+Melvin K. Cabatuan
+Member, Intelligent Systems Laboratory
+Mobile Application Development Team Leader
+>>>>>>> 35416f1914e6ec10b7c14a90236881adfd7e4a99
 Email: melvincabatuan@gmail.com
 All Rights Reserved
 
